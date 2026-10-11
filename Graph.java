@@ -127,3 +127,17 @@ public class Graph {
             Main.addAction("Graph: added vertex " + vertexCount);
         }
     }
+    public void addEdge() {
+        int a = InputValidator.readInt("Enter first vertex (1 to " + vertexCount + "): ", 1, vertexCount);
+        int b = InputValidator.readInt("Enter second vertex (1 to " + vertexCount + "): ", 1, vertexCount);
+
+        if (a == b) {
+            System.out.println("  [!] A road cannot connect a vertex to itself.");
+        } else if (matrix[a][b] == 1) {
+            System.out.println("  [!] There is already a road between " + a + " and " + b + ".");
+        } else {
+            connect(a, b);
+            System.out.println("  [OK] Road added between " + a + " and " + b + ".");
+            Main.addAction("Graph: added edge " + a + " - " + b);
+        }
+    }
