@@ -101,6 +101,36 @@ public class LinkedList {
         }
     }
 
+       //---------------------------------- Find 
+    public void search() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty. Insert numbers first.");
+        } else {
+            int value = InputValidator.readValue("Enter the number to search: ");
+            Node current = head;
+            int position = 1;
+            boolean found = false;
+
+            while (current != null && found == false) {
+                if (current.data == value) {
+                    found = true;
+                } else {
+                    current = current.next;
+                    position++;
+                }
+            }
+
+            if (found == true) {
+                System.out.println("  [OK] " + value + " found at position " + position + ".");
+                Main.addAction("Linked List: searched " + value + " (found)");
+            } else {
+                System.out.println("  [!] " + value + " was not found in the linked list.");
+                Main.addAction("Linked List: searched " + value + " (not found)");
+            }
+        }
+    }
+
+
 
 
 
