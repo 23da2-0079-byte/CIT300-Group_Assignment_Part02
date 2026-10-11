@@ -267,5 +267,40 @@ public class Graph {
         Main.addAction("Graph: BFS from vertex " + start);
     }
 
+   public void dfs() {
+        int start = InputValidator.readInt("Enter the start vertex (1 to " + vertexCount + "): ", 1, vertexCount);
+
+        dfsVisited = new boolean[MAX_VERTICES + 1];
+        dfsOrder = "";
+        dfsVisitedCount = 0;
+
+        dfsVisit(start);
+
+        System.out.println();
+        System.out.println(" DFS from vertex " + start + ":");
+        System.out.println(" " + dfsOrder);
+        System.out.println(" Vertices reached: " + dfsVisitedCount + " of " + vertexCount);
+
+        lastDfsResult = "Start " + start + ": " + dfsOrder;
+        Main.addAction("Graph: DFS from vertex " + start);
+    }
+
+    private void dfsVisit(int current) {
+        dfsVisited[current] = true;
+
+        if (dfsVisitedCount > 0) {
+            dfsOrder = dfsOrder + " -> ";
+        }
+        dfsOrder = dfsOrder + current;
+        dfsVisitedCount++;
+
+        for (int next = 1; next <= vertexCount; next++) {
+            if (matrix[current][next] == 1 && dfsVisited[next] == false) {
+                dfsVisit(next);
+            }
+        }
+    }
+}
+
 
 
