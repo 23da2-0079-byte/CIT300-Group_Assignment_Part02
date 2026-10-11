@@ -71,6 +71,37 @@ public class LinkedList {
         Main.addAction("Linked List: inserted " + value + " at position " + position);
     }
 
+       // ---------------------------------- Remove 
+    public void delete() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty. Nothing to delete.");
+        } else {
+            int value = InputValidator.readValue("Enter the number to delete: ");
+
+            if (head.data == value) {
+                head = head.next;
+                count--;
+                System.out.println("  [OK] " + value + " deleted from the linked list.");
+                Main.addAction("Linked List: deleted " + value);
+            } else {
+                Node current = head;
+                while (current.next != null && current.next.data != value) {
+                    current = current.next;
+                }
+
+                if (current.next == null) {
+                    System.out.println("  [!] " + value + " was not found in the linked list.");
+                } else {
+                    current.next = current.next.next;
+                    count--;
+                    System.out.println("  [OK] " + value + " deleted from the linked list.");
+                    Main.addAction("Linked List: deleted " + value);
+                }
+            }
+        }
+    }
+
+
 
 
 }
