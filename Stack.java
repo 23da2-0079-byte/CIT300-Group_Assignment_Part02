@@ -37,4 +37,18 @@ public class Stack {
         }
     }
 
+    public void push() {
+        if (top == MAX_SIZE - 1) {
+            System.out.println("  [!] Stack Overflow: the stack is full (maximum " + MAX_SIZE + " items).");
+        } else {
+            int value = InputValidator.readValue("Enter the number to push: ");
+            top++;
+            data[top] = value;
+
+            System.out.println("  [OK] " + value + " pushed onto the stack.");
+            Main.addAction("Stack: pushed " + value);
+        }
+    }
+
+
 }
