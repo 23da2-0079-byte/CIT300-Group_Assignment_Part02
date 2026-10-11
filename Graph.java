@@ -117,3 +117,13 @@ public class Graph {
             }
         }
     }
+
+    public void addVertex() {
+        if (vertexCount == MAX_VERTICES) {
+            System.out.println("  [!] Graph is full (maximum " + MAX_VERTICES + " vertices).");
+        } else {
+            vertexCount++;
+            System.out.println("  [OK] Vertex " + vertexCount + " added. It has no roads yet - use Add Edge.");
+            Main.addAction("Graph: added vertex " + vertexCount);
+        }
+    }
