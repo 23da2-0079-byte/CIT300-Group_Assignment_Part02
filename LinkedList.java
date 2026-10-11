@@ -1,11 +1,17 @@
 class Node {
     int data;     
+
     Node next;    
 
     Node(int value) {
         data = value;
         next = null;
+        
+        
     }
+
+
+
 }
 
 public class LinkedList {
@@ -14,6 +20,7 @@ public class LinkedList {
     private int count = 0;
 
     public int getCount() {
+
         return count;
     }
 
@@ -129,9 +136,37 @@ public class LinkedList {
             }
         }
     }
+     // ---------------------------------- Show 
+    public void display() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty.");
+        } else {
+            System.out.println();
+            System.out.println(" Linked List (" + count + " items)");
 
+            System.out.print(" HEAD -> ");
+            Node current = head;
+            while (current != null) {
+                System.out.print("[" + current.data + "] -> ");
+                current = current.next;
+            }
+            System.out.println("null");
+        }
+    }
 
+    public String toText() {
+        String text = "(empty)";
 
+        if (head != null) {
+            text = "";
+            Node current = head;
+            while (current != null) {
+                text = text + current.data + " -> ";
+                current = current.next;
+            }
+            text = text + "null";
+        }
 
-
+        return text;
+    }
 }
