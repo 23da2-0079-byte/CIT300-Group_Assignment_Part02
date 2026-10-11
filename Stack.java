@@ -1,0 +1,40 @@
+public class Stack {
+
+    private final int MAX_SIZE = 10;
+    private int[] data = new int[MAX_SIZE];
+    private int top = -1;
+
+    // How many items are in the stack
+    public int getCount() {
+        return top + 1;
+    }
+
+
+    public void showMenu() {
+        boolean back = false;
+
+        while (back == false) {
+            System.out.println();
+            System.out.println("--------------- STACK OPERATIONS ------------");
+            System.out.println(" 1. Push");
+            System.out.println(" 2. Pop");
+            System.out.println(" 3. Peek");
+            System.out.println(" 4. Display");
+            System.out.println(" 5. Return to Main Menu");
+            int choice = InputValidator.readInt("Enter your choice: ", 1, 5);
+
+            if (choice == 1) {
+                push();
+            } else if (choice == 2) {
+                pop();
+            } else if (choice == 3) {
+                peek();
+            } else if (choice == 4) {
+                display();
+            } else {
+                back = true;
+            }
+        }
+    }
+
+}
