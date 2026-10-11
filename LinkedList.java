@@ -45,4 +45,32 @@ public class LinkedList {
             }
         }
     }
+
+      // ----------------------------------  Insert
+    public void insert() {
+        int value = InputValidator.readValue("Enter the number to insert: ");
+        int position = InputValidator.readInt("Enter position (1 to " + (count + 1) + "): ", 1, count + 1);
+
+        Node newNode = new Node(value);
+
+        if (position == 1) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node current = head;
+            for (int i = 1; i < position - 1; i++) {
+                current = current.next;
+            }
+
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+        count++;
+
+        System.out.println("  [OK] " + value + " inserted at position " + position + ".");
+        Main.addAction("Linked List: inserted " + value + " at position " + position);
+    }
+
+
+
 }
