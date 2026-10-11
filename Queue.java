@@ -66,4 +66,30 @@ public class Queue {
         }
     }
 
+    
+    public void peek() {
+        if (count == 0) {
+            System.out.println("  [!] Queue is empty. Nothing at the front.");
+        } else {
+            System.out.println("  [OK] Front of the queue is " + data[0] + ".");
+            Main.addAction("Queue: peeked " + data[0]);
+        }
+    }
+
+    public void display() {
+        if (count == 0) {
+            System.out.println("  [!] Queue is empty.");
+        } else {
+            System.out.println();
+            System.out.println(" Queue (" + count + " of " + MAX_SIZE + " used)");
+
+            System.out.print(" FRONT -> ");
+            for (int i = 0; i < count; i++) {
+                System.out.print("[" + data[i] + "] ");
+            }
+            System.out.println("<- REAR");
+        }
+    }
+
+
 }
