@@ -90,4 +90,21 @@ public class Stack {
     }
 
 
+    public String toText() {
+        String text = "(empty)";
+
+        if (top >= 0) {
+            text = "[";
+            for (int i = 0; i <= top; i++) {
+                text = text + data[i];
+                if (i < top) {
+                    text = text + ", ";
+                }
+            }
+            text = text + "]  (top = " + data[top] + ")";
+        }
+
+        return text;
+    }
 }
+
