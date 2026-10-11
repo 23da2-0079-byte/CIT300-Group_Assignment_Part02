@@ -181,4 +181,48 @@ public class Graph {
         Main.addAction("Graph: viewed Rough 2D Map");
     }
 
+    public void showAdjacencyMatrix() {
+        int width = 8 + 3 * vertexCount;
+        if (width < 60) {
+            width = 60;
+        }
+
+        System.out.println();
+        printBar(width);
+        System.out.println("   Colombo 1-" + vertexCount + " City Map - ADJACENCY MATRIX");
+        printBar(width);
+
+        System.out.print("        ");
+        for (int col = 1; col <= vertexCount; col++) {
+            System.out.printf("%02d ", col);
+        }
+        System.out.println();
+
+        for (int row = 1; row <= vertexCount; row++) {
+            System.out.printf("   %02d   ", row);
+
+            for (int col = 1; col <= vertexCount; col++) {
+                if (matrix[row][col] == 1) {
+                    System.out.print("1  ");
+                } else {
+                    System.out.print(".  ");
+                }
+            }
+            System.out.println();
+        }
+
+        printBar(width);
+        System.out.println("   1 = road     . = no road");
+        System.out.println("   Vertices: " + vertexCount + "     Roads (edges): " + edgeCount);
+
+        Main.addAction("Graph: viewed Adjacency Matrix");
+    }
+
+    private void printBar(int width) {
+        for (int i = 0; i < width; i++) {
+            System.out.print("=");
+        }
+        System.out.println();
+    }
+
 
