@@ -37,4 +37,33 @@ public class Queue {
         }
     }
 
+    public void enqueue() {
+        if (count == MAX_SIZE) {
+            System.out.println("  [!] Queue is full (maximum " + MAX_SIZE + " items).");
+        } else {
+            int value = InputValidator.readValue("Enter the number to enqueue: ");
+            data[count] = value;
+            count++;
+
+            System.out.println("  [OK] " + value + " added to the queue.");
+            Main.addAction("Queue: enqueued " + value);
+        }
+    }
+
+    public void dequeue() {
+        if (count == 0) {
+            System.out.println("  [!] Queue Underflow: cannot dequeue from an empty queue.");
+        } else {
+            int value = data[0];
+
+            for (int i = 0; i < count - 1; i++) {
+                data[i] = data[i + 1];
+            }
+            count--;
+
+            System.out.println("  [OK] " + value + " removed from the queue.");
+            Main.addAction("Queue: dequeued " + value);
+        }
+    }
+
 }
