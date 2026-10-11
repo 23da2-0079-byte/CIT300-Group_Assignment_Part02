@@ -224,5 +224,48 @@ public class Graph {
         }
         System.out.println();
     }
+	
+	   public void bfs() {
+        int start = InputValidator.readInt("Enter the start vertex (1 to " + vertexCount + "): ", 1, vertexCount);
+
+        boolean[] visited = new boolean[MAX_VERTICES + 1];
+        int[] queue = new int[MAX_VERTICES + 1];
+        int front = 0;
+        int rear = 0;
+        int visitedCount = 0;
+        String order = "";
+
+        visited[start] = true;
+        queue[rear] = start;
+        rear++;
+
+        while (front < rear) {
+            int current = queue[front];
+            front++;
+
+            if (visitedCount > 0) {
+                order = order + " -> ";
+            }
+            order = order + current;
+            visitedCount++;
+
+            for (int next = 1; next <= vertexCount; next++) {
+                if (matrix[current][next] == 1 && visited[next] == false) {
+                    visited[next] = true;
+                    queue[rear] = next;
+                    rear++;
+                }
+            }
+        }
+
+        System.out.println();
+        System.out.println(" BFS from vertex " + start + ":");
+        System.out.println(" " + order);
+        System.out.println(" Vertices reached: " + visitedCount + " of " + vertexCount);
+
+        lastBfsResult = "Start " + start + ": " + order;
+        Main.addAction("Graph: BFS from vertex " + start);
+    }
+
 
 
