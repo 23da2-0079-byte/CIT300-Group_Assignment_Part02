@@ -50,5 +50,18 @@ public class Stack {
         }
     }
 
+    public void pop() {
+        if (top == -1) {
+            System.out.println("  [!] Stack Underflow: cannot pop from an empty stack.");
+        } else {
+            int value = data[top];
+            top--;
+
+            System.out.println("  [OK] " + value + " popped from the stack.");
+            Main.addAction("Stack: popped " + value);
+        }
+    }
+
+
 
 }
