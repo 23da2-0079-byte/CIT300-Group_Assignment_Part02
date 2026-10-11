@@ -62,6 +62,32 @@ public class Stack {
         }
     }
 
+    public void peek() {
+        if (top == -1) {
+            System.out.println("  [!] Stack is empty. Nothing to peek.");
+        } else {
+            System.out.println("  [OK] Top of the stack is " + data[top] + ".");
+            Main.addAction("Stack: peeked " + data[top]);
+        }
+    }
+
+    public void display() {
+        if (top == -1) {
+            System.out.println("  [!] Stack is empty.");
+        } else {
+            System.out.println();
+            System.out.println(" Stack (" + getCount() + " of " + MAX_SIZE + " used)");
+
+            for (int i = top; i >= 0; i--) {
+                System.out.printf("   | %-6d |", data[i]);
+                if (i == top) {
+                    System.out.print("  <-- TOP");
+                }
+                System.out.println();
+            }
+            System.out.println("   +--------+");
+        }
+    }
 
 
 }
