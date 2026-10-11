@@ -91,5 +91,20 @@ public class Queue {
         }
     }
 
+    public String toText() {
+        String text = "(empty)";
 
-}
+        if (count > 0) {
+            text = "[";
+            for (int i = 0; i < count; i++) {
+                text = text + data[i];
+                if (i < count - 1) {
+                    text = text + ", ";
+                }
+            }
+            text = text + "]  (front = " + data[0] + ")";
+        }
+
+        return text;
+    }
+} 
