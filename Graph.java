@@ -141,3 +141,44 @@ public class Graph {
             Main.addAction("Graph: added edge " + a + " - " + b);
         }
     }
+	
+	 public void showRough2DMap() {
+        System.out.println();
+        System.out.println("============================================================");
+        System.out.println("            Colombo 1-15 City Map - ROUGH 2D MAP            ");
+        System.out.println("============================================================");
+        System.out.println("                             [15]");
+        System.out.println("                            / | \\");
+        System.out.println("                          /   |   \\");
+        System.out.println("                        /     |     \\");
+        System.out.println("                     [11]----[13]----[14]");
+        System.out.println("                     / \\\\     |     //");
+        System.out.println("                    /   \\ \\   |   / /");
+        System.out.println("                   /     \\  \\ | /  /");
+        System.out.println("                  /       \\  [12] /");
+        System.out.println("                 /         \\  |  /");
+        System.out.println("                /           \\ | /");
+        System.out.println("               /             \\|/");
+        System.out.println("             [01]------------[10]----[09]");
+        System.out.println("               \\\\           / | \\     |");
+        System.out.println("                \\ \\       /   |   \\   |");
+        System.out.println("                 \\  \\   /     |     \\ |");
+        System.out.println("                  \\  [02]----[07]----[08]");
+        System.out.println("                   \\  |     / | \\     |");
+        System.out.println("                    \\ |   /   |   \\   |");
+        System.out.println("                     \\| /     |     \\ |");
+        System.out.println("                     [03]----[04]----[05]");
+        System.out.println("                      |       |     / |");
+        System.out.println("                      |       |   /   |");
+        System.out.println("                      |       | /     |");
+        System.out.println("                      |      [06]     |");
+        System.out.println("                      |               |");
+        System.out.println("                      +---------------+");
+        System.out.println("============================================================");
+        System.out.println(" Note: this drawing is fixed. Vertices/roads you add");
+        System.out.println(" yourself are shown in the Adjacency Matrix.");
+
+        Main.addAction("Graph: viewed Rough 2D Map");
+    }
+
+
