@@ -139,6 +139,39 @@ public class Main {
 
         addAction("Viewed Performance Comparison");
     }
+   public static void showAllResults() {
+        System.out.println();
+        System.out.println("=============================================================");
+        System.out.println("                     DISPLAY ALL RESULTS                     ");
+        System.out.println("=============================================================");
+        System.out.println(" DATA STRUCTURES");
+        System.out.println(" Array         : " + myArray.toText());
+        System.out.println(" Stack         : " + myStack.toText());
+        System.out.println(" Queue         : " + myQueue.toText());
+        System.out.println(" Linked List   : " + myList.toText());
+        System.out.println(" Graph         : " + myGraph.getVertexCount() + " vertices, "
+                + myGraph.getEdgeCount() + " roads");
 
+        System.out.println();
+        System.out.println(" SEARCH AND TRAVERSAL RESULTS");
+        System.out.println(" Linear Search : " + myArray.getLastLinearResult());
+        System.out.println(" Binary Search : " + myArray.getLastBinaryResult());
+        System.out.println(" BFS           : " + myGraph.getLastBfsResult());
+        System.out.println(" DFS           : " + myGraph.getLastDfsResult());
+        System.out.println("=============================================================");
 
+        addAction("Viewed All Results");
+    }
+
+     public static void addAction(String text) {
+        for (int i = recentActions.length - 1; i > 0; i--) {
+            recentActions[i] = recentActions[i - 1];
+        }
+
+        recentActions[0] = text;
+
+        if (actionCount < recentActions.length) {
+            actionCount++;
+        }
+    }
 }
