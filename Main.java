@@ -45,4 +45,42 @@ public class Main {
         System.out.println("Thank you for using the Data Structure & Graph Analyzer. Goodbye!");
     }
 
+     public static void showDashboard() {
+        System.out.println();
+        System.out.println("+==========================================================+");
+        System.out.println("|             DATA STRUCTURE & GRAPH ANALYZER              |");
+        System.out.println("|                       Group No: 21                       |");
+        System.out.println("+==========================================================+");
+
+        System.out.println();
+        System.out.println(" LIVE DATA STRUCTURE STATUS");
+        System.out.println("+----------------------+--------------+--------------------+");
+        System.out.println("| Structure            | Count        | Status             |");
+        System.out.println("+----------------------+--------------+--------------------+");
+        showStatusRow("Array", myArray.getCount());
+        showStatusRow("Stack", myStack.getCount());
+        showStatusRow("Queue", myQueue.getCount());
+        showStatusRow("Linked List", myList.getCount());
+        showStatusRow("Graph (Vertices)", myGraph.getVertexCount());
+        System.out.println("+----------------------+--------------+--------------------+");
+
+        System.out.println();
+        System.out.println(" RECENT ACTIONS");
+        System.out.println("------------------------------------------------------------");
+        for (int i = 0; i < actionCount; i++) {
+            System.out.println(" " + (i + 1) + ". " + recentActions[i]);
+        }
+        System.out.println("------------------------------------------------------------");
+    }
+
+    private static void showStatusRow(String name, int count) {
+        String status = "Empty";
+        if (count > 0) {
+            status = "Has Data";
+        }
+
+        System.out.printf("| %-20s | %-12d | %-18s |%n", name, count, status);
+    }
+
+
 }
