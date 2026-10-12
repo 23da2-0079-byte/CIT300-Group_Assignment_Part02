@@ -82,5 +82,63 @@ public class Main {
         System.out.printf("| %-20s | %-12d | %-18s |%n", name, count, status);
     }
 
+       public static void showMainMenu() {
+        System.out.println();
+        System.out.println("=============================================");
+        System.out.println(" MAIN MENU");
+        System.out.println("=============================================");
+        System.out.println(" 1. Array Operations");
+        System.out.println(" 2. Stack Operations");
+        System.out.println(" 3. Queue Operations");
+        System.out.println(" 4. Linked List Operations");
+        System.out.println(" 5. Searching Operations");
+        System.out.println(" 6. Graph Operations");
+        System.out.println(" 7. Performance Comparison");
+        System.out.println(" 8. Display All Results");
+        System.out.println(" 9. Exit");
+    }
+
+
+    public static void showPerformanceComparison() {
+        System.out.println();
+        System.out.println("=============================================================");
+        System.out.println("                   PERFORMANCE COMPARISON                    ");
+        System.out.println("=============================================================");
+        System.out.printf(" %-22s%-22s%s%n", "Operation", "Algorithm / Structure", "Time Complexity");
+        System.out.println("-------------------------------------------------------------");
+        System.out.printf(" %-22s%-22s%s%n", "Search", "Linear Search", "O(n)");
+        System.out.printf(" %-22s%-22s%s%n", "Search", "Binary Search", "O(log n)");
+        System.out.printf(" %-22s%-22s%s%n", "Graph Traversal", "BFS (matrix)", "O(V^2)");
+        System.out.printf(" %-22s%-22s%s%n", "Graph Traversal", "DFS (matrix)", "O(V^2)");
+        System.out.printf(" %-22s%-22s%s%n", "Insert / Delete", "Array", "O(n)");
+        System.out.printf(" %-22s%-22s%s%n", "Push / Pop", "Stack", "O(1)");
+        System.out.printf(" %-22s%-22s%s%n", "Enqueue", "Queue (array)", "O(1)");
+        System.out.printf(" %-22s%-22s%s%n", "Dequeue", "Queue (array)", "O(n)");
+        System.out.printf(" %-22s%-22s%s%n", "Insert/Delete/Search", "Linked List", "O(n)");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println(" n = number of items      V = number of vertices");
+
+        System.out.println();
+        System.out.println(" LATEST RESULTS");
+        System.out.println(" Linear Search : " + myArray.getLastLinearResult());
+        System.out.println(" Binary Search : " + myArray.getLastBinaryResult());
+        System.out.println(" BFS           : " + myGraph.getLastBfsResult());
+        System.out.println(" DFS           : " + myGraph.getLastDfsResult());
+
+        System.out.println();
+        System.out.println(" WHY THE RESULTS DIFFER");
+        System.out.println(" - Linear Search checks items one by one: O(n).");
+        System.out.println(" - Binary Search cuts the search area in half each time: O(log n),");
+        System.out.println("   but the array must be sorted first.");
+        System.out.println(" - BFS (queue) visits level by level; DFS (recursion) goes deep first.");
+        System.out.println("   So the visiting ORDER is different, but both reach every vertex.");
+        System.out.println(" - With an adjacency matrix each vertex scans a full row: O(V^2).");
+        System.out.println("   With an adjacency list it would be O(V + E).");
+        System.out.println(" - Stack push/pop and queue enqueue work at one end only: O(1).");
+        System.out.println(" - Our array queue moves every item left on dequeue: O(n).");
+
+        addAction("Viewed Performance Comparison");
+    }
+
 
 }
