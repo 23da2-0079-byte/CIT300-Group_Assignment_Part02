@@ -109,3 +109,137 @@ public class Array {
             Main.addAction("Array: deleted " + removed + " from position " + position);
         }
     }
+
+    // DISPLAY
+    public void display() {
+        if (count == 0) {
+            System.out.println("  [!] Array is empty.");
+        } else {
+            System.out.println();
+            System.out.println(" Array (" + count + " of " + MAX_SIZE + " used)");
+
+            System.out.print(" Position : ");
+            for (int i = 0; i < count; i++) {
+                System.out.printf("%-7d", i + 1);
+            }
+            System.out.println();
+
+            System.out.print(" Value    : ");
+            for (int i = 0; i < count; i++) {
+                System.out.printf("%-7d", data[i]);
+            }
+            System.out.println();
+        }
+    }
+
+
+    // LINEAR SEARCH
+    public void linearSearch() {
+        if (count == 0) {
+            System.out.println("  [!] Array is empty. Insert numbers first.");
+        } else {
+            int target = InputValidator.readValue("Enter the number to search: ");
+            int foundPosition = -1;
+            int i = 0;
+
+            while (i < count && foundPosition == -1) {
+                if (data[i] == target) {
+                    foundPosition = i + 1;
+                }
+                i++;
+            }
+
+            if (foundPosition == -1) {
+                System.out.println("  [!] Linear Search: " + target + " was not found.");
+                lastLinearResult = target + " not found";
+            } else {
+                System.out.println("  [OK] Linear Search: " + target + " found at position " + foundPosition + ".");
+                lastLinearResult = target + " found at position " + foundPosition;
+            }
+            Main.addAction("Linear Search for " + target);
+        }
+    }
+
+    // BINARY SEARCH
+    public void binarySearch() {
+        if (count == 0) {
+            System.out.println("  [!] Array is empty. Insert numbers first.");
+        } else {
+            if (isSorted() == false) {
+                System.out.println("  Binary Search needs a sorted array. Sorting the array first...");
+                sortArray();
+                System.out.println("  Sorted array: " + toText());
+                Main.addAction("Array sorted for Binary Search");
+            }
+
+            int target = InputValidator.readValue("Enter the number to search: ");
+            int low = 0;
+            int high = count - 1;
+            int foundPosition = -1;
+
+            while (low <= high && foundPosition == -1) {
+                int middle = (low + high) / 2;
+
+                if (data[middle] == target) {
+                    foundPosition = middle + 1;
+                } else if (data[middle] < target) {
+                    low = middle + 1;      // look the right half
+                } else {
+                    high = middle - 1;     // look the left half
+                }
+            }
+
+            if (foundPosition == -1) {
+                System.out.println("  [!] Binary Search: " + target + " was not found.");
+                lastBinaryResult = target + " not found";
+            } else {
+                System.out.println("  [OK] Binary Search: " + target + " found at position " + foundPosition + ".");
+                lastBinaryResult = target + " found at position " + foundPosition;
+            }
+            Main.addAction("Binary Search for " + target);
+        }
+    }
+
+
+    private boolean isSorted() {
+        boolean sorted = true;
+
+        for (int i = 0; i < count - 1; i++) {
+            if (data[i] > data[i + 1]) {
+                sorted = false;
+            }
+        }
+
+        return sorted;
+    }
+
+    // Bubble Sort
+    private void sortArray() {
+        for (int round = 0; round < count - 1; round++) {
+            for (int i = 0; i < count - 1 - round; i++) {
+                if (data[i] > data[i + 1]) {
+                    int temp = data[i];
+                    data[i] = data[i + 1];
+                    data[i + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public String toText() {
+        String text = "(empty)";
+
+        if (count > 0) {
+            text = "[";
+            for (int i = 0; i < count; i++) {
+                text = text + data[i];
+                if (i < count - 1) {
+                    text = text + ", ";
+                }
+            }
+            text = text + "]";
+        }
+
+        return text;
+    }
+}
