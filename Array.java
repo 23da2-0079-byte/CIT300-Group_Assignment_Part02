@@ -71,4 +71,41 @@ public class Array {
         }
     }
 
-    
+    // INSERT
+    public void insert() {
+        if (count == MAX_SIZE) {
+            System.out.println("  [!] Array is full (maximum " + MAX_SIZE + " items).");
+        } else {
+            int value = InputValidator.readValue("Enter the number to insert: ");
+            int position = InputValidator.readInt("Enter position (1 to " + (count + 1) + "): ", 1, count + 1);
+
+        
+            for (int i = count; i >= position; i--) {
+                data[i] = data[i - 1];
+            }
+
+            data[position - 1] = value;
+            count++;
+
+            System.out.println("  [OK] " + value + " inserted at position " + position + ".");
+            Main.addAction("Array: inserted " + value + " at position " + position);
+        }
+    }
+
+    // DELETE
+    public void delete() {
+        if (count == 0) {
+            System.out.println("  [!] Array is empty. Nothing to delete.");
+        } else {
+            int position = InputValidator.readInt("Enter position to delete (1 to " + count + "): ", 1, count);
+            int removed = data[position - 1];
+
+            for (int i = position - 1; i < count - 1; i++) {
+                data[i] = data[i + 1];
+            }
+            count--;
+
+            System.out.println("  [OK] " + removed + " deleted from position " + position + ".");
+            Main.addAction("Array: deleted " + removed + " from position " + position);
+        }
+    }
