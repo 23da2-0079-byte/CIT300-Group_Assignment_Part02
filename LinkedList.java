@@ -1,0 +1,172 @@
+class Node {
+    int data;     
+
+    Node next;    
+
+    Node(int value) {
+        data = value;
+        next = null;
+        
+        
+    }
+
+
+
+}
+
+public class LinkedList {
+
+    private Node head = null;    
+    private int count = 0;
+
+    public int getCount() {
+
+        return count;
+    }
+
+    // -------------------------------------submenu--------------------------
+
+    public void showMenu() {
+        boolean back = false;
+
+        while (back == false) {
+            System.out.println();
+            System.out.println("--------------- LINKED LIST OPERATIONS ------------");
+            System.out.println(" 1. Insert");
+            System.out.println(" 2. Delete");
+            System.out.println(" 3. Search");
+            System.out.println(" 4. Display");
+            System.out.println(" 5. Return to Main Menu");
+            int choice = InputValidator.readInt("Enter your choice: ", 1, 5);
+
+            if (choice == 1) {
+                insert();
+            } else if (choice == 2) {
+                delete();
+            } else if (choice == 3) {
+                search();
+            } else if (choice == 4) {
+                display();
+            } else {
+                back = true;
+            }
+        }
+    }
+
+      // ----------------------------------  Insert
+    public void insert() {
+        int value = InputValidator.readValue("Enter the number to insert: ");
+        int position = InputValidator.readInt("Enter position (1 to " + (count + 1) + "): ", 1, count + 1);
+
+        Node newNode = new Node(value);
+
+        if (position == 1) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node current = head;
+            for (int i = 1; i < position - 1; i++) {
+                current = current.next;
+            }
+
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+        count++;
+
+        System.out.println("  [OK] " + value + " inserted at position " + position + ".");
+        Main.addAction("Linked List: inserted " + value + " at position " + position);
+    }
+
+       // ---------------------------------- Remove 
+    public void delete() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty. Nothing to delete.");
+        } else {
+            int value = InputValidator.readValue("Enter the number to delete: ");
+
+            if (head.data == value) {
+                head = head.next;
+                count--;
+                System.out.println("  [OK] " + value + " deleted from the linked list.");
+                Main.addAction("Linked List: deleted " + value);
+            } else {
+                Node current = head;
+                while (current.next != null && current.next.data != value) {
+                    current = current.next;
+                }
+
+                if (current.next == null) {
+                    System.out.println("  [!] " + value + " was not found in the linked list.");
+                } else {
+                    current.next = current.next.next;
+                    count--;
+                    System.out.println("  [OK] " + value + " deleted from the linked list.");
+                    Main.addAction("Linked List: deleted " + value);
+                }
+            }
+        }
+    }
+
+       //---------------------------------- Find 
+    public void search() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty. Insert numbers first.");
+        } else {
+            int value = InputValidator.readValue("Enter the number to search: ");
+            Node current = head;
+            int position = 1;
+            boolean found = false;
+
+            while (current != null && found == false) {
+                if (current.data == value) {
+                    found = true;
+                } else {
+                    current = current.next;
+                    position++;
+                }
+            }
+
+            if (found == true) {
+                System.out.println("  [OK] " + value + " found at position " + position + ".");
+                Main.addAction("Linked List: searched " + value + " (found)");
+            } else {
+                System.out.println("  [!] " + value + " was not found in the linked list.");
+                Main.addAction("Linked List: searched " + value + " (not found)");
+            }
+        }
+    }
+     // ---------------------------------- Show 
+    public void display() {
+        if (head == null) {
+            System.out.println("  [!] Linked list is empty.");
+        } else {
+            System.out.println();
+            System.out.println(" Linked List (" + count + " items)");
+
+            System.out.print(" HEAD -> ");
+            Node current = head;
+            while (current != null) {
+                System.out.print("[" + current.data + "] -> ");
+                current = current.next;
+            }
+            System.out.println("null");
+        }
+    }
+
+    public String toText() {
+        String text = "(empty)";
+
+        if (head != null) {
+            text = "";
+            Node current = head;
+            while (current != null) {
+                text = text + current.data + " -> ";
+                current = current.next;
+            }
+            text = text + "null";
+        }
+
+        return text;
+    }
+}
