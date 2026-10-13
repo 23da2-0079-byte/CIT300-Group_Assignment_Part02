@@ -1,6 +1,6 @@
 public class Main {
 
-    public static Array myArray = new Array(); // Work in progress – not final
+    public static Array myArray = new Array(); 
     public static Stack myStack = new Stack();
     public static Queue myQueue = new Queue();
     public static LinkedList myList = new LinkedList();
