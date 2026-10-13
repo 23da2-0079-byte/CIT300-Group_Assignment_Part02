@@ -142,44 +142,54 @@ public class Graph {
         }
     }
 	
-	 public void showRough2DMap() {
-        System.out.println();
-        System.out.println("============================================================");
-        System.out.println("            Colombo 1-15 City Map - ROUGH 2D MAP            ");
-        System.out.println("============================================================");
-        System.out.println("                             [15]");
-        System.out.println("                            / | \\");
-        System.out.println("                          /   |   \\");
-        System.out.println("                        /     |     \\");
-        System.out.println("                     [11]----[13]----[14]");
-        System.out.println("                     / \\\\     |     //");
-        System.out.println("                    /   \\ \\   |   / /");
-        System.out.println("                   /     \\  \\ | /  /");
-        System.out.println("                  /       \\  [12] /");
-        System.out.println("                 /         \\  |  /");
-        System.out.println("                /           \\ | /");
-        System.out.println("               /             \\|/");
-        System.out.println("             [01]------------[10]----[09]");
-        System.out.println("               \\\\           / | \\     |");
-        System.out.println("                \\ \\       /   |   \\   |");
-        System.out.println("                 \\  \\   /     |     \\ |");
-        System.out.println("                  \\  [02]----[07]----[08]");
-        System.out.println("                   \\  |     / | \\     |");
-        System.out.println("                    \\ |   /   |   \\   |");
-        System.out.println("                     \\| /     |     \\ |");
-        System.out.println("                     [03]----[04]----[05]");
-        System.out.println("                      |       |     / |");
-        System.out.println("                      |       |   /   |");
-        System.out.println("                      |       | /     |");
-        System.out.println("                      |      [06]     |");
-        System.out.println("                      |               |");
-        System.out.println("                      +---------------+");
-        System.out.println("============================================================");
-        System.out.println(" Note: this drawing is fixed. Vertices/roads you add");
-        System.out.println(" yourself are shown in the Adjacency Matrix.");
+	public void showRough2DMap() {
+    System.out.println("╔═════════════════════════════════════════════════════════════════════════════════════╗");
+    System.out.println("║                                 COLOMBO ZONES MAP                                   ║");
+    System.out.println("║                                    Group No: 21                                     ║");
+    System.out.println("╠═════════════════════════════════════════════════════════════════════════════════════╣");
+    System.out.println("║                                                                                     ║");
+    System.out.println("║                        ┌──────────────────────┐                                     ║");
+    System.out.println("║                        │ C-15 (Mattakkuliya)  │                                     ║");
+    System.out.println("║                        └──────────┬───────────┘                                     ║");
+    System.out.println("║                                   │                                                 ║");
+    System.out.println("║                        ┌──────────┴───────────┬──────────────────────┐              ║");
+    System.out.println("║                        │    C-13 (Kotahena)   │   C-14 (Grandpass)   │              ║");
+    System.out.println("║                        └──────────┬───────────┴──────────┬───────────┘              ║");
+    System.out.println("║                                   │                      │                          ║");
+    System.out.println("║                        ┌──────────┴───────────┐          │                          ║");
+    System.out.println("║                        │    C-12 (Aluthkade)  │          │                          ║");
+    System.out.println("║                        └──────────┬───────────┘          │                          ║");
+    System.out.println("║                                   │                      │                          ║");
+    System.out.println("║  ┌─────────────────────┬──────────┴───────────┐   ┌──────┴───────────────┐          ║");
+    System.out.println("║  │     C-01 (Fort)     │   C-11 (Pettah)      ├───┤  C-09 (Dematagoda)   │          ║");
+    System.out.println("║  └──────────┬──────────┴──────────┬───────────┘   └──────┬───────────────┘          ║");
+    System.out.println("║             │                     │                      │                          ║");
+    System.out.println("║  ┌──────────┴──────────┐          │                      │                          ║");
+    System.out.println("║  │ C-02 (Slave Island) ├──────────┼──────────────────────┤                          ║");
+    System.out.println("║  └──────────┬──────────┘          │                      │                          ║");
+    System.out.println("║             │             ┌───────┴──────────────┐┌──────┴───────────────┐          ║");
+    System.out.println("║             │             │    C-10 (Maradana)   ├┤     C-08 (Borella)   │          ║");
+    System.out.println("║             │             └───────┬──────────────┘└──────┬───────────────┘          ║");
+    System.out.println("║  ┌──────────┴──────────┐          │                      │                          ║");
+    System.out.println("║  │   C-03 (Kollupitiya)├──────────┼──────────────────────┤                          ║");
+    System.out.println("║  └──────────┬──────────┘          │                      │                          ║");
+    System.out.println("║             │             ┌───────┴──────────────┐       │                          ║");
+    System.out.println("║             │             │  C-07 (Kurunduwatta) ├───────┘                          ║");
+    System.out.println("║             │             └───────┬──────────────┘                                  ║");
+    System.out.println("║  ┌──────────┴──────────┐          │                                                 ║");
+    System.out.println("║  │ C-04 (Bambalapitiya)├──────────┼──────────────────────┐                          ║");
+    System.out.println("║  └──────────┬──────────┘          │                      │                          ║");
+    System.out.println("║             │             ┌───────┴──────────────┐┌──────┴───────────────┐          ║");
+    System.out.println("║             │             │  C-05 (Havelock/Nar) ├┤  C-06 (Wellawatta)    │         ║");
+    System.out.println("║             └─────────────┴──────────────────────┘└──────────────────────┘          ║");
+    System.out.println("║                                                                                     ║");
+    System.out.println("╚═════════════════════════════════════════════════════════════════════════════════════╝");
+    System.out.println(" Note: this drawing is fixed!");
 
-        Main.addAction("Graph: viewed Rough 2D Map");
-    }
+    Main.addAction("Graph: viewed Rough 2D Map");
+
+
+}
 
     public void showAdjacencyMatrix() {
         int width = 8 + 3 * vertexCount;
